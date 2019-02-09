@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ChooseActivity">
+
+    <TextView
+        android:id="@+id/chooseActivityCategory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:text="@string/chooseActivity" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="30sp"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/historyBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:background="#ffffff"
+            android:contentDescription="@string/historyBtn"
+            android:src="@drawable/parchment" />
+
+        <ImageButton
+            android:id="@+id/artBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#ffffff"
+            android:contentDescription="@string/historyBtn"
+            android:src="@drawable/palette" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="30sp"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/scienceBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:background="#ffffff"
+            android:contentDescription="@string/historyBtn"
+            android:src="@drawable/biology" />
+
+        <ImageButton
+            android:id="@+id/musicBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#ffffff"
+            android:contentDescription="@string/historyBtn"
+            android:src="@drawable/violin" />
+    </LinearLayout>
+
+</LinearLayout>

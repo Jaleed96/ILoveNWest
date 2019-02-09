@@ -2,4 +2,9 @@
     <string name="app_name">ILoveNWest</string>
     <string name="appName">I Love New West</string>
     <string name="createPlanBtn">Create Plan</string>
+    <string name="chooseActivity">Choose activity type</string>
+    <string name="historyBtn">History</string>
+    <string name="artBtn">Art</string>
+    <string name="scienceBtn">Science</string>
+    <string name="musicBtn">Music</string>
 </resources>
