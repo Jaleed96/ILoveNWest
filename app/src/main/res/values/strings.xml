@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">ILoveNWest</string>
+    <string name="appName">I Love New West</string>
+    <string name="createPlanBtn">Create Plan</string>
+    <string name="chooseActivity">Choose activity type</string>
+    <string name="historyBtn">History</string>
+    <string name="artBtn">Art</string>
+    <string name="scienceBtn">Science</string>
+    <string name="musicBtn">Music</string>
+    <string name="activity1HARDCODED">Great Fire Exhibit</string>
+    <string name="dateHARDCODED">Jan 20, 2019</string>
+    <string name="activity2HARDCODED">Science World</string>
+    <string name="date2HARDCODED">Jan 21, 2019</string>
 </resources>

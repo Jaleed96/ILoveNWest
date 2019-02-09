@@ -5,16 +5,16 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-public class Homepage extends Activity {
+public class ChooseActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_homepage);
+        setContentView(R.layout.activity_choose);
     }
 
-    protected void onClickCreatePlan(View v) {
-        Intent i = new Intent(this, ChooseActivity.class);
+    protected void onClickChooseActivity(View v) {
+        Intent i = new Intent(this, ScheduleActivities.class);
         startActivity(i);
     }
 }
