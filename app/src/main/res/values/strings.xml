@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">ILoveNWest</string>
+    <string name="appName">I Love New West</string>
+    <string name="createPlanBtn">Create Plan</string>
 </resources>
