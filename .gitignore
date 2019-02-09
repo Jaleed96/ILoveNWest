@@ -1,0 +1,19 @@
+#FOR WINDOWS
+*.iml
+.gradle
+\local.properties
+\.idea
+\build
+\captures
+.DS_Store
+.externalNativeBuild
+
+#FOR MAC AND LINUX
+*.iml
+.gradle
+/local.properties
+/.idea
+/build
+/captures
+.DS_Store
+.externalNativeBuild
