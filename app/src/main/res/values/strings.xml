@@ -7,4 +7,8 @@
     <string name="artBtn">Art</string>
     <string name="scienceBtn">Science</string>
     <string name="musicBtn">Music</string>
+    <string name="activity1HARDCODED">Great Fire Exhibit</string>
+    <string name="dateHARDCODED">Jan 20, 2019</string>
+    <string name="activity2HARDCODED">Science World</string>
+    <string name="date2HARDCODED">Jan 21, 2019</string>
 </resources>
