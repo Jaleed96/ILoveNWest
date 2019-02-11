@@ -13,7 +13,7 @@ public class ChooseActivity extends Activity {
         setContentView(R.layout.activity_choose);
     }
 
-    protected void onClickChooseActivity(View v) {
+    public void onClickChooseActivity(View v) {
         Intent i = new Intent(this, ScheduleActivities.class);
         startActivity(i);
     }

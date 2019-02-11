@@ -13,7 +13,7 @@ public class Homepage extends Activity {
         setContentView(R.layout.activity_homepage);
     }
 
-    protected void onClickCreatePlan(View v) {
+    public void onClickCreatePlan(View v) {
         Intent i = new Intent(this, ChooseActivity.class);
         startActivity(i);
     }
