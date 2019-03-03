@@ -76,4 +76,8 @@
                 android:text="@string/date2HARDCODED" />
         </LinearLayout>
     </LinearLayout>
+    <ListView
+        android:id="@+id/eventList"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
 </LinearLayout>
