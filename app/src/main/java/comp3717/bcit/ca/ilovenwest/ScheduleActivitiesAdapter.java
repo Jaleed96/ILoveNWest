@@ -30,9 +30,19 @@ public class ScheduleActivitiesAdapter extends ArrayAdapter<Event> {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.schedule_acitivities_list, parent, false);
         }
 
-        // Lookup view for country names
-        TextView tvFirstName = convertView.findViewById(R.id.eventName);
-        tvFirstName.setText(event.getName());
+        // Populate the event list
+        TextView eventName = convertView.findViewById(R.id.eventName);
+        eventName.setText(event.getName());
+        TextView eventAddress= convertView.findViewById(R.id.eventAddress);
+        eventAddress.setText(event.getAddress());
+
+        if (position % 2 == 1) {
+            //view.setBackgroundColor(R.color.colorListItem1);
+            convertView.setBackgroundResource(R.color.colorListItem1);
+        } else {
+            //view.setBackgroundColor(R.color.colorListItem2);
+            convertView.setBackgroundResource(R.color.colorListItem2);
+        }
 
         // Return the completed view to render on screen
         return convertView;
