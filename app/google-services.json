@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "531565303533",
+    "firebase_url": "https://ilovenwest.firebaseio.com",
+    "project_id": "ilovenwest",
+    "storage_bucket": "ilovenwest.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:531565303533:android:a6d5942240ba5b30",
+        "android_client_info": {
+          "package_name": "comp3717.bcit.ca.ilovenwest"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "531565303533-moh2fqong0msh11t40t7ubobgqojgrgn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "comp3717.bcit.ca.ilovenwest",
+            "certificate_hash": "65df115808bb5f003c9e403eac788320529cd59f"
+          }
+        },
+        {
+          "client_id": "531565303533-50njca895tgliuc7ulv9oao8d59p1jb3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDhDhRMqxRWJ9Ed9knl3WpMdlrmTvEMmyQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "531565303533-50njca895tgliuc7ulv9oao8d59p1jb3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

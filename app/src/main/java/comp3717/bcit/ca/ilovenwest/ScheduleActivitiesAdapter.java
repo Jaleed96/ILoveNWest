@@ -6,6 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -19,7 +21,7 @@ public class ScheduleActivitiesAdapter extends ArrayAdapter<Event> {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(int position, View convertView, final ViewGroup parent) {
         final Activity activity = (Activity) _context;
 
         // Get the data item for this position
@@ -32,7 +34,7 @@ public class ScheduleActivitiesAdapter extends ArrayAdapter<Event> {
 
         // Populate the event list
         TextView eventName = convertView.findViewById(R.id.eventName);
-        eventName.setText(event.getName());
+        eventName.setText(event.getName().substring(0, Math.min(event.getName().length(), 30)));
         TextView eventAddress= convertView.findViewById(R.id.eventAddress);
         eventAddress.setText(event.getAddress());
 
