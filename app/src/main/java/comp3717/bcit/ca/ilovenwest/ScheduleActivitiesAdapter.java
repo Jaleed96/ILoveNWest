@@ -38,15 +38,20 @@ public class ScheduleActivitiesAdapter extends ArrayAdapter<Event> {
         TextView eventAddress= convertView.findViewById(R.id.eventAddress);
         eventAddress.setText(event.getAddress());
 
-        if (position % 2 == 1) {
-            //view.setBackgroundColor(R.color.colorListItem1);
-            convertView.setBackgroundResource(R.color.colorListItem1);
-        } else {
-            //view.setBackgroundColor(R.color.colorListItem2);
-            convertView.setBackgroundResource(R.color.colorListItem2);
-        }
+
+        convertView.setBackgroundResource(R.color.colorListItem2);
+
+//        if (position % 2 == 1) {
+//            //view.setBackgroundColor(R.color.colorListItem1);
+//            convertView.setBackgroundResource(R.color.colorListItem1);
+//        } else {
+//            //view.setBackgroundColor(R.color.colorListItem2);
+//            convertView.setBackgroundResource(R.color.colorListItem2);
+//        }
 
         // Return the completed view to render on screen
         return convertView;
     }
+
+
 }

@@ -2,9 +2,12 @@ package comp3717.bcit.ca.ilovenwest;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -16,8 +19,13 @@ import java.util.ArrayList;
 
 public class ScheduleActivities extends Activity {
     private static String EVENTS_URL = "http://opendata.newwestcity.ca/downloads/cultural-events/EVENTS.json";
+    private static String HISTORY_URL = "http://opendata.newwestcity.ca/downloads/cultural-events/EVENTS.json";
+    private static String CULTURE_URL = "http://opendata.newwestcity.ca/downloads/cultural-events/EVENTS.json";
+    private static String MUSIC_URL = "http://opendata.newwestcity.ca/downloads/cultural-events/EVENTS.json";
+    private static String selectedUrl = "";
     private String category;
     private ArrayList<Event> eventList;
+    private ArrayList<Event> eventSelectedList;
     private ListView lv;
 
     @Override
@@ -28,10 +36,18 @@ public class ScheduleActivities extends Activity {
         lv = findViewById(R.id.eventList);
 
         category = "event"; //getIntent().getExtras().getString("category");
-        String url = "";
         switch(category){
             case "event":
-                url = EVENTS_URL;
+                selectedUrl = EVENTS_URL;
+                break;
+            case "history":
+                selectedUrl = HISTORY_URL;
+                break;
+            case "culture":
+                selectedUrl = CULTURE_URL;
+                break;
+            case "music":
+                selectedUrl = MUSIC_URL;
                 break;
             default:
                 break;
@@ -66,8 +82,6 @@ public class ScheduleActivities extends Activity {
 
             if (jsonStr != null) {
                 try {
-                    //JSONObject jsonObj = new JSONObject(jsonStr);
-
                     // Getting JSON Array node
                     JSONObject obj = new JSONObject(jsonStr);
                     JSONArray test = obj.getJSONArray("features");
@@ -129,6 +143,29 @@ public class ScheduleActivities extends Activity {
 
             // Attach the adapter to a ListView
             lv.setAdapter(adapter);
+            lv.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
+            eventSelectedList = new ArrayList<Event>();
+
+            lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    Event selectedEvent = eventList.get(position);
+                    if(!eventSelectedList.contains(selectedEvent)){
+                        eventSelectedList.add(selectedEvent);
+                        view.setBackgroundResource(R.color.colorListItem1);
+                    }
+                    else{
+                        eventSelectedList.remove(selectedEvent);
+                        view.setBackgroundResource(R.color.colorListItem2);
+                    }
+                }
+            });
         }
+    }
+
+    public void onAddClick(View view){
+        Intent i = new Intent(this, EditPlan.class);
+        i.putParcelableArrayListExtra("newEventsList", eventSelectedList);
+        startActivity(i);
     }
 }

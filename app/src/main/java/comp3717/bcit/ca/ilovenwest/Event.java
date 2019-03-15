@@ -1,6 +1,9 @@
 package comp3717.bcit.ca.ilovenwest;
 
-public class Event {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class Event implements Parcelable {
     // Instance Members
     private String email;
     private String address2;
@@ -25,6 +28,40 @@ public class Event {
     public Event(){
 
     }
+
+    protected Event(Parcel in) {
+        email = in.readString();
+        address2 = in.readString();
+        Address = in.readString();
+        city = in.readString();
+        prov = in.readString();
+        pcode = in.readString();
+        fax = in.readString();
+        phone = in.readString();
+        Name = in.readString();
+        Descriptn = in.readString();
+        id = in.readLong();
+        category = in.readInt();
+        company = in.readString();
+        website = in.readString();
+        social_networks = in.readInt();
+        summary = in.readString();
+        catname = in.readString();
+        X = in.readDouble();
+        Y = in.readDouble();
+    }
+
+    public static final Creator<Event> CREATOR = new Creator<Event>() {
+        @Override
+        public Event createFromParcel(Parcel in) {
+            return new Event(in);
+        }
+
+        @Override
+        public Event[] newArray(int size) {
+            return new Event[size];
+        }
+    };
 
     //Getter and Setters
     public String getEmail() {
@@ -177,5 +214,33 @@ public class Event {
 
     public void setY(double y) {
         Y = y;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(email);
+        dest.writeString(address2);
+        dest.writeString(Address);
+        dest.writeString(city);
+        dest.writeString(prov);
+        dest.writeString(pcode);
+        dest.writeString(fax);
+        dest.writeString(phone);
+        dest.writeString(Name);
+        dest.writeString(Descriptn);
+        dest.writeLong(id);
+        dest.writeInt(category);
+        dest.writeString(company);
+        dest.writeString(website);
+        dest.writeInt(social_networks);
+        dest.writeString(summary);
+        dest.writeString(catname);
+        dest.writeDouble(X);
+        dest.writeDouble(Y);
     }
 }
