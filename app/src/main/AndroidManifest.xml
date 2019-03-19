@@ -21,8 +21,8 @@
         </activity>
         <activity android:name=".ChooseActivity" />
         <activity android:name=".ScheduleActivities" />
-        <activity android:name=".EditPlan"></activity>
-        <activity android:name=".ViewPlans"></activity>
+        <activity android:name=".EditPlan" />
+        <activity android:name=".ViewPlans" />
     </application>
 
 </manifest>
