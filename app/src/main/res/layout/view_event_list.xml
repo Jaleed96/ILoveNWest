@@ -5,7 +5,7 @@
     android:orientation="horizontal">
 
     <ImageView
-        android:id="@+id/activityTypeImg1"
+        android:id="@+id/eventListImg"
         android:layout_width="30sp"
         android:layout_height="40sp"
         android:layout_marginStart="20dp"
@@ -18,13 +18,13 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/eventName"
+            android:id="@+id/eventListName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="20sp" />
 
         <TextView
-            android:id="@+id/eventAddress"
+            android:id="@+id/eventListAddress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </LinearLayout>

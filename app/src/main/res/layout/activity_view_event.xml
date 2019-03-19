@@ -4,18 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ScheduleActivities">
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@android:drawable/btn_default"
-        android:onClick="onAddClick"
-        android:padding="10dp"
-        android:text="@string/label_add" />
+    tools:context=".ViewPlannedEvents">
 
     <ListView
-        android:id="@+id/eventList"
+        android:id="@+id/eventPlanList"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content" />
 </LinearLayout>

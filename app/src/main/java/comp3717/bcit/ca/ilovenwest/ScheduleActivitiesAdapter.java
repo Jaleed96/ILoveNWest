@@ -6,8 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -35,16 +33,9 @@ public class ScheduleActivitiesAdapter extends ArrayAdapter<Event> {
         // Populate the event list
         TextView eventName = convertView.findViewById(R.id.eventName);
         eventName.setText(event.getName().substring(0, Math.min(event.getName().length(), 30)));
-        TextView eventAddress= convertView.findViewById(R.id.eventAddress);
+        TextView eventAddress = convertView.findViewById(R.id.eventAddress);
         eventAddress.setText(event.getAddress());
-
-        if (position % 2 == 1) {
-            //view.setBackgroundColor(R.color.colorListItem1);
-            convertView.setBackgroundResource(R.color.colorListItem1);
-        } else {
-            //view.setBackgroundColor(R.color.colorListItem2);
-            convertView.setBackgroundResource(R.color.colorListItem2);
-        }
+        convertView.setBackgroundResource(R.color.colorListItem2);
 
         // Return the completed view to render on screen
         return convertView;
