@@ -13,7 +13,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ViewPlansAdapter extends ArrayAdapter<Plan> {
-
     Activity context;
     List<Plan> plans;
 
