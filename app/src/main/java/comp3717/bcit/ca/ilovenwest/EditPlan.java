@@ -25,6 +25,7 @@ public class EditPlan extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_plan);
 
+        CURRENT_PLAN = getIntent().getParcelableExtra("plan");
 
         ArrayList<Event> newEventsList = getIntent().getParcelableArrayListExtra("newEventsList");
 
