@@ -6,11 +6,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ListView;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.ArrayList;
 import java.util.Date;
 
 public class EditPlan extends Activity {
-    //public static Plan CURRENT_PLAN;
+    public static Plan CURRENT_PLAN;
     public static Date PLAN_DATE;
     public static ArrayList<Event> EVENT_LIST = new ArrayList<Event>();
 
@@ -33,9 +36,22 @@ public class EditPlan extends Activity {
     }
 
     public void onConfirmClick(View view) {
-        //if(CURRENT_PLAN == null){
-        //
-        // }
+        PLAN_DATE = new Date();
+
+        if(CURRENT_PLAN == null){
+            CURRENT_PLAN = new Plan(PLAN_DATE, EVENT_LIST);
+        }
+
+        DatabaseReference databaseList;
+        databaseList = FirebaseDatabase.getInstance().getReference("plans");
+        String id = databaseList.push().getKey();
+
+        databaseList.child(id).setValue(CURRENT_PLAN);
+
+        // Clear all activities and go to the view page
+        Intent i = new Intent(getApplicationContext(), ViewPlans.class);
+        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(i);
     }
 
     public void onCancelClick(View view) {
