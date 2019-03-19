@@ -17,4 +17,9 @@ public class Homepage extends Activity {
         Intent i = new Intent(this, ChooseActivity.class);
         startActivity(i);
     }
+
+    public void onClickViewPlans(View v) {
+        Intent i = new Intent(this, ViewPlans.class);
+        startActivity(i);
+    }
 }
