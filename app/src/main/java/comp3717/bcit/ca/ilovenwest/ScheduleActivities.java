@@ -76,7 +76,7 @@ public class ScheduleActivities extends Activity {
             HttpHandler sh = new HttpHandler();
 
             // Making a request to url and getting response
-            String jsonStr = sh.makeServiceCall(EVENTS_URL);
+            String jsonStr = sh.makeServiceCall(selectedUrl);
 
             Log.e(TAG, "Response from url: " + jsonStr);
 
