@@ -1,10 +1,10 @@
 package comp3717.bcit.ca.ilovenwest;
 
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -17,7 +17,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class ScheduleActivities extends Activity {
+public class ScheduleActivities extends AppCompatActivity {
     private static String EVENTS_URL = "http://opendata.newwestcity.ca/downloads/cultural-events/EVENTS.json";
     private static String HISTORY_URL = "http://opendata.newwestcity.ca/downloads/cultural-events/EVENTS.json";
     private static String CULTURE_URL = "http://opendata.newwestcity.ca/downloads/cultural-events/EVENTS.json";
