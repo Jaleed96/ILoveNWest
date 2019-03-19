@@ -1,9 +1,10 @@
 package comp3717.bcit.ca.ilovenwest;
 
-import android.app.Activity;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -17,7 +18,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class ViewPlans extends Activity {
+public class ViewPlans extends AppCompatActivity {
     ListView lvPlans;
     ArrayList<Plan> planList;
     DatabaseReference databaseList;

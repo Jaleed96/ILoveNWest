@@ -1,10 +1,10 @@
 package comp3717.bcit.ca.ilovenwest;
 
 
-import android.app.Activity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
-public class ViewPlannedEvents extends Activity {
+public class ViewPlannedEvents extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
