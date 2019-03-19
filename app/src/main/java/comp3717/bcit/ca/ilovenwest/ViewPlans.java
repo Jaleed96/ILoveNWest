@@ -1,9 +1,13 @@
 package comp3717.bcit.ca.ilovenwest;
 
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.google.firebase.database.DataSnapshot;
@@ -45,6 +49,14 @@ public class ViewPlans extends AppCompatActivity {
 
                 ViewPlansAdapter adapter = new ViewPlansAdapter(ViewPlans.this, planList);
                 lvPlans.setAdapter(adapter);
+
+                lvPlans.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        Intent i = new Intent(ViewPlans.this, ViewPlannedEvents.class);
+                        startActivity(i);
+                    }
+                });
             }
 
             @Override

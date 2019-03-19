@@ -13,6 +13,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.ArrayList;
 import java.util.Date;
 
+
 public class EditPlan extends AppCompatActivity {
     public static Plan CURRENT_PLAN;
     public static Date PLAN_DATE;
