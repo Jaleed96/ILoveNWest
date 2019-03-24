@@ -40,6 +40,8 @@ public class EditPlan extends AppCompatActivity {
         // Set default input values
         EditText name = findViewById(R.id.planName);
         name.setText(PLAN_NAME);
+        EditText date = findViewById(R.id.planDate);
+        date.setText(PLAN_DATE.toString());
 
         // Get the list of new events to be added to the plan
         ArrayList<Event> newEventsList = getIntent().getParcelableArrayListExtra("newEventsList");
@@ -63,18 +65,24 @@ public class EditPlan extends AppCompatActivity {
 
         // Grab inputs
         EditText planName = findViewById(R.id.planName);
+        EditText planDate = findViewById(R.id.planDate);
 
         // Create or Update current plan
         if (CURRENT_PLAN == null) {
             // Create a new plan based on inputs
-            CURRENT_PLAN = new Plan(planName.getText().toString(), PLAN_DATE, EVENT_LIST);
+            CURRENT_PLAN = new Plan(planName.getText().toString(), new Date(planDate.getText().toString()), EVENT_LIST);
 
             // Save to the database
             String id = databaseList.push().getKey();
             databaseList.child(id).setValue(CURRENT_PLAN);
         }
         else{
-            // TODO: add logic to update the plan with the new values
+            // Update current plan values
+            CURRENT_PLAN.setName(planName.getText().toString());
+            CURRENT_PLAN.setDate(new Date(planDate.getText().toString()));
+            CURRENT_PLAN.setEvent(EVENT_LIST);
+
+            // TODO: add logic to update rather than create in the database
         }
 
         // Zero-out the current plan
