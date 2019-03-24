@@ -1,28 +1,50 @@
 package comp3717.bcit.ca.ilovenwest;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Plan {
+public class Plan  implements Parcelable {
     private String name;
     private Date date;
     private ArrayList<Event> events;
 
-    public Plan(Date date, ArrayList<Event> events) {
-        this.name = "New Plan";
+    public Plan(String name, Date date, ArrayList<Event> events) {
+        this.name = name.isEmpty() ? "New Plan": name;
         this.date = date;
         this.events = events;
     }
 
-    public Plan(Date date) {
-        this.name = "New Plan";
+    public Plan(String name, Date date) {
+        this.name = name.isEmpty() ? "New Plan": name;
         this.date = date;
         this.events = new ArrayList<Event>();
     }
 
     public Plan() {
         this.name = "New Plan";
+        this.date = new Date();
+        this.events = new ArrayList<Event>();
     }
+
+    protected Plan(Parcel in) {
+        name = in.readString();
+        events = in.createTypedArrayList(Event.CREATOR);
+    }
+
+    public static final Creator<Plan> CREATOR = new Creator<Plan>() {
+        @Override
+        public Plan createFromParcel(Parcel in) {
+            return new Plan(in);
+        }
+
+        @Override
+        public Plan[] newArray(int size) {
+            return new Plan[size];
+        }
+    };
 
     public ArrayList<Event> getEvents() {
         return events;
@@ -38,5 +60,24 @@ public class Plan {
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    public String getName(){
+        return name;
+    }
+
+    public void setName(String name){
+        this.name = name;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(name);
+        dest.writeTypedList(events);
     }
 }
