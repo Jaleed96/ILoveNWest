@@ -14,7 +14,8 @@ public class Homepage extends AppCompatActivity {
     }
 
     public void onClickCreatePlan(View v) {
-        Intent i = new Intent(this, ChooseActivity.class);
+        //Intent i = new Intent(this, ChooseActivity.class);
+        Intent i = new Intent(this, CreatePlan.class);
         startActivity(i);
     }
 
