@@ -1,13 +1,13 @@
 package comp3717.bcit.ca.ilovenwest;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 
@@ -112,15 +112,14 @@ public class EditPlan extends AppCompatActivity {
         startActivity(i);
     }
 
-    public void onFloatButtonClick(View view){
-        if(!removeMode){
+    public void onFloatButtonClick(View view) {
+        if (!removeMode) {
             // Start choosing a new activity and adding its events
             Intent i = new Intent(this, ChooseActivity.class);
             startActivity(i);
-        }
-        else{
+        } else {
             // Remove the event from the main list
-            for(Event item : selectedEvents){
+            for (Event item : selectedEvents) {
                 EVENT_LIST.remove(item);
             }
 
@@ -134,19 +133,24 @@ public class EditPlan extends AppCompatActivity {
         }
     }
 
+    public void onClearSelectedClick(View view) {
+        selectedEvents = new ArrayList<Event>();
+        setAddMode();
+    }
+
     private void clearData() {
         CURRENT_PLAN = null;
         PLAN_NAME = null;
         PLAN_DATE = null;
     }
 
-    private void setAddMode(){
+    private void setAddMode() {
         removeMode = false;
         FloatingActionButton floatBtn = findViewById(R.id.addEntryButton);
         floatBtn.setImageResource(android.R.drawable.ic_input_add);
     }
 
-    private void setRemoveMode(){
+    private void setRemoveMode() {
         removeMode = true;
         FloatingActionButton floatBtn = findViewById(R.id.addEntryButton);
         floatBtn.setImageResource(android.R.drawable.ic_delete);
@@ -163,20 +167,22 @@ public class EditPlan extends AppCompatActivity {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                     Event selectedEvent = EVENT_LIST.get(position);
-                    if(!selectedEvents.contains(selectedEvent)){
+                    if (!selectedEvents.contains(selectedEvent)) {
                         selectedEvents.add(selectedEvent);
                         view.setBackgroundResource(R.color.colorListItem1);
-                    }
-                    else{
+                    } else {
                         selectedEvents.remove(selectedEvent);
                         view.setBackgroundResource(R.color.colorListItem2);
                     }
 
-                    if(selectedEvents.size() > 0){
+                    if (selectedEvents.size() > 0) {
                         setRemoveMode();
-                    }
-                    else{
+                        Button test = findViewById(R.id.clearBtn);
+                        test.setVisibility(View.VISIBLE);
+                    } else {
                         setAddMode();
+                        Button test = findViewById(R.id.clearBtn);
+                        test.setVisibility(View.GONE);
                     }
                 }
             });

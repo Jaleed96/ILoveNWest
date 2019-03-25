@@ -52,13 +52,14 @@
             android:text="@string/button_no" />
 
         <Button
-            android:id="@+id/removeBtn"
+            android:id="@+id/clearBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@android:drawable/btn_default"
-            android:onClick="onRemoveClick"
+            android:onClick="onClearSelectedClick"
             android:padding="10dp"
-            android:text="Remove" />
+            android:text="@string/button_clear"
+            android:visibility="gone" />
     </LinearLayout>
 
     <FrameLayout

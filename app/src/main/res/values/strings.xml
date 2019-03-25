@@ -12,6 +12,7 @@
     <string name="label_edit_plan_title">New Plan</string>
     <string name="button_ok">Confirm</string>
     <string name="button_no">Cancel</string>
+    <string name="button_clear">Clear Selected</string>
     <string name="viewPlan">View Plans</string>
     <string name="yourPlansTitle">Your Plans</string>
     <string name="selectPlans">Select a Plan to View:</string>
