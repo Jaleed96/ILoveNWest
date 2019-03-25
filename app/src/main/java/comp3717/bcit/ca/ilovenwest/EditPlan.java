@@ -93,6 +93,7 @@ public class EditPlan extends AppCompatActivity {
         Intent i = new Intent(getApplicationContext(), ViewPlans.class);
         i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(i);
+        finish();
     }
 
     public void onCancelClick(View view) {
