@@ -46,31 +46,31 @@ public class ViewPlans extends AppCompatActivity {
 
                 ViewPlansAdapter adapter = new ViewPlansAdapter(ViewPlans.this, planList);
                 lvPlans.setAdapter(adapter);
-
-                lvPlans.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                        Intent i = new Intent(ViewPlans.this, ViewPlannedEvents.class);
-                        Plan plan = planList.get(position);
-                        i.putExtra("plan", plan);
-                        startActivity(i);
-                    }
-                });
-
-                lvPlans.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-                    @Override
-                    public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                        Intent i = new Intent(ViewPlans.this, EditPlan.class);
-                        Plan plan = planList.get(position);
-                        i.putExtra("plan", plan);
-                        startActivity(i);
-                        return true;
-                    }
-                });
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
+            }
+        });
+
+        lvPlans.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent i = new Intent(ViewPlans.this, ViewPlannedEvents.class);
+                Plan plan = planList.get(position);
+                i.putExtra("plan", plan);
+                startActivity(i);
+            }
+        });
+
+        lvPlans.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent i = new Intent(ViewPlans.this, EditPlan.class);
+                Plan plan = planList.get(position);
+                i.putExtra("plan", plan);
+                startActivity(i);
+                return true;
             }
         });
     }
