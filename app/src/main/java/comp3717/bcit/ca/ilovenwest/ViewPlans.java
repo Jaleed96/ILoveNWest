@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -40,10 +39,8 @@ public class ViewPlans extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 planList.clear();
                 for (DataSnapshot planSnapShot : dataSnapshot.getChildren()) {
-                    //Event e = planSnapShot.getValue(Event.class);
-                    Log.d("println", planSnapShot.toString());
                     Plan plan = planSnapShot.getValue(Plan.class);
-                    Log.d("println", planSnapShot.getValue(Plan.class).toString());
+                    plan.setKey(planSnapShot.getKey());
                     planList.add(plan);
                 }
 
@@ -54,6 +51,8 @@ public class ViewPlans extends AppCompatActivity {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                         Intent i = new Intent(ViewPlans.this, ViewPlannedEvents.class);
+                        Plan plan = planList.get(position);
+                        i.putExtra("plan", plan);
                         startActivity(i);
                     }
                 });
