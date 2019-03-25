@@ -11,17 +11,20 @@ public class Plan  implements Parcelable {
     private Date date;
     private ArrayList<Event> events;
     private String dbKey;
+    private long dateLong;
 
     public Plan(String name, Date date, ArrayList<Event> events) {
         this.name = name.isEmpty() ? "New Plan": name;
         this.date = date;
         this.events = events;
+        this.dateLong = date.getTime();
     }
 
     public Plan(String name, Date date) {
         this.name = name.isEmpty() ? "New Plan": name;
         this.date = date;
         this.events = new ArrayList<Event>();
+        this.dateLong = date.getTime();
     }
 
     public Plan(String name, Date date, String dbKey){
@@ -29,12 +32,14 @@ public class Plan  implements Parcelable {
         this.date = date;
         this.events = new ArrayList<Event>();
         this.dbKey = dbKey;
+        this.dateLong = date.getTime();
     }
 
     public Plan() {
         this.name = "New Plan";
         this.date = new Date();
         this.events = new ArrayList<Event>();
+        this.dateLong = date.getTime();
     }
 
     protected Plan(Parcel in) {
@@ -42,6 +47,7 @@ public class Plan  implements Parcelable {
         date = new Date(in.readString());
         dbKey = in.readString();
         events = in.createTypedArrayList(Event.CREATOR);
+        dateLong = in.readLong();
     }
 
     public static final Creator<Plan> CREATOR = new Creator<Plan>() {
@@ -75,6 +81,12 @@ public class Plan  implements Parcelable {
     public String getName(){
         return name;
     }
+    public long getLong(){
+        return dateLong;
+    }
+    public void setLong(long date){
+        this.dateLong = date;
+    }
 
     public void setKey(String key){
         this.dbKey = key;
@@ -97,5 +109,6 @@ public class Plan  implements Parcelable {
         dest.writeString(date.toString());
         dest.writeString(dbKey);
         dest.writeTypedList(events);
+        dest.writeLong(dateLong);
     }
 }

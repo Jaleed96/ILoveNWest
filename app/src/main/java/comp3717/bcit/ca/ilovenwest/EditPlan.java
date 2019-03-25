@@ -32,7 +32,7 @@ public class EditPlan extends AppCompatActivity {
             CURRENT_PLAN = getIntent().getParcelableExtra("plan");
             if (CURRENT_PLAN != null) {
                 PLAN_NAME = CURRENT_PLAN.getName();
-                PLAN_DATE = CURRENT_PLAN.getDate();
+                PLAN_DATE = new Date(CURRENT_PLAN.getLong());
                 EVENT_LIST = CURRENT_PLAN.getEvents();
             }
         }
@@ -116,6 +116,7 @@ public class EditPlan extends AppCompatActivity {
         PLAN_NAME = null;
         PLAN_DATE = null;
     }
+
 
     private class GetContacts extends AsyncTask<Void, Void, Void> {
         @Override
