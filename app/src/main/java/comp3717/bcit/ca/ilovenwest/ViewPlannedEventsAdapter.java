@@ -1,8 +1,6 @@
 package comp3717.bcit.ca.ilovenwest;
 
 import android.app.Activity;
-import android.support.annotation.NonNull;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;

@@ -1,14 +1,9 @@
 package comp3717.bcit.ca.ilovenwest;
 
-
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
-import android.widget.ListView;
 
-import java.util.ArrayList;
-import java.util.Date;
+import android.widget.ListView;
 
 public class ViewPlannedEvents extends AppCompatActivity {
     ListView lvEvents;
