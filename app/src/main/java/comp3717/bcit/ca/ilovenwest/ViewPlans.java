@@ -16,9 +16,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class ViewPlans extends AppCompatActivity {
+public class ViewPlans extends AppCompatActivity implements Serializable {
     ListView lvPlans;
     ArrayList<Plan> planList;
     DatabaseReference databaseList;
@@ -40,10 +41,8 @@ public class ViewPlans extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 planList.clear();
                 for (DataSnapshot planSnapShot : dataSnapshot.getChildren()) {
-                    //Event e = planSnapShot.getValue(Event.class);
-                    Log.d("println", planSnapShot.toString());
                     Plan plan = planSnapShot.getValue(Plan.class);
-                    Log.d("println", planSnapShot.getValue(Plan.class).toString());
+                    plan.setKey(planSnapShot.getKey());
                     planList.add(plan);
                 }
 
@@ -54,6 +53,8 @@ public class ViewPlans extends AppCompatActivity {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                         Intent i = new Intent(ViewPlans.this, ViewPlannedEvents.class);
+                        Plan plan = planList.get(position);
+                        i.putExtra("plan", plan);
                         startActivity(i);
                     }
                 });
