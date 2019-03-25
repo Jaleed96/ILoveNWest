@@ -46,7 +46,7 @@ public class EditPlan extends AppCompatActivity {
         EditText date = findViewById(R.id.planDate);
         date.setText(PLAN_DATE.toString());
 
-//        if(!editExisting){
+        if(!editExisting){
             // Get the list of new events to be added to the plan
             ArrayList<Event> newEventsList = getIntent().getParcelableArrayListExtra("newEventsList");
 
@@ -56,7 +56,7 @@ public class EditPlan extends AppCompatActivity {
                     EVENT_LIST.add(item);
                 }
             }
-//        }
+        }
 
 
         // Populate the list view
@@ -137,20 +137,10 @@ public class EditPlan extends AppCompatActivity {
         protected void onPostExecute(Void result) {
         }
     }
-    public void onPause(){
-        super.onPause();
-        Log.d("println", "pause");
-    }
     public void onStop(){
         super.onStop();
-//        if(editExisting){
-//            clearData();
-//        }
-
-        Log.d("println", "stop");
-    }
-    public void onDestroy(){
-        super.onDestroy();
-        Log.d("println", "destroy");
+        if(editExisting){
+            clearData();
+        }
     }
 }
