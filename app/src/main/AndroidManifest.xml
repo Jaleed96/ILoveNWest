@@ -24,7 +24,8 @@
         <activity android:name=".EditPlan" />
         <activity android:name=".ViewPlans" />
         <activity android:name=".ViewPlannedEvents" />
-        <activity android:name=".CreatePlan"></activity>
+        <activity android:name=".CreatePlan" />
+        <activity android:name=".ViewEventDetails"></activity>
     </application>
 
 </manifest>

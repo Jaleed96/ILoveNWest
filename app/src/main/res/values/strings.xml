@@ -15,4 +15,5 @@
     <string name="viewPlan">View Plans</string>
     <string name="yourPlansTitle">Your Plans</string>
     <string name="selectPlans">Select a Plan to View:</string>
+    <string name="mapsBtn">View In Maps</string>
 </resources>
