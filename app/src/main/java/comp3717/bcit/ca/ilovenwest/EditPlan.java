@@ -28,9 +28,9 @@ public class EditPlan extends AppCompatActivity {
         setContentView(R.layout.activity_edit_plan);
 
         // If our current plan hasn't been populated already, try to check Extras
-        if(CURRENT_PLAN == null){
+        if (CURRENT_PLAN == null) {
             CURRENT_PLAN = getIntent().getParcelableExtra("plan");
-            if(CURRENT_PLAN != null){
+            if (CURRENT_PLAN != null) {
                 PLAN_NAME = CURRENT_PLAN.getName();
                 PLAN_DATE = CURRENT_PLAN.getDate();
                 EVENT_LIST = CURRENT_PLAN.getEvents();
@@ -47,9 +47,11 @@ public class EditPlan extends AppCompatActivity {
         ArrayList<Event> newEventsList = getIntent().getParcelableArrayListExtra("newEventsList");
 
         // Add the new events the plan
-        for (Event item : newEventsList) {
-            if (!EVENT_LIST.contains(item)) {
-                EVENT_LIST.add(item);
+        if (newEventsList != null && newEventsList.size() > 0) {
+            for (Event item : newEventsList) {
+                if (!EVENT_LIST.contains(item)) {
+                    EVENT_LIST.add(item);
+                }
             }
         }
 
@@ -75,8 +77,7 @@ public class EditPlan extends AppCompatActivity {
             // Save to the database
             String id = databaseList.push().getKey();
             databaseList.child(id).setValue(CURRENT_PLAN);
-        }
-        else{
+        } else {
             // Update current plan values
             CURRENT_PLAN.setName(planName.getText().toString());
             CURRENT_PLAN.setDate(new Date(planDate.getText().toString()));
@@ -110,7 +111,7 @@ public class EditPlan extends AppCompatActivity {
         startActivity(i);
     }
 
-    private void clearData(){
+    private void clearData() {
         CURRENT_PLAN = null;
         PLAN_NAME = null;
         PLAN_DATE = null;
