@@ -167,5 +167,6 @@ public class ScheduleActivities extends AppCompatActivity {
         Intent i = new Intent(this, EditPlan.class);
         i.putParcelableArrayListExtra("newEventsList", eventSelectedList);
         startActivity(i);
+        finish();
     }
 }

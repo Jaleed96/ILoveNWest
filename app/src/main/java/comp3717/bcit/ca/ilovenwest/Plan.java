@@ -44,6 +44,7 @@ public class Plan  implements Parcelable {
 
     protected Plan(Parcel in) {
         name = in.readString();
+        date = new Date(in.readString());
         dbKey = in.readString();
         events = in.createTypedArrayList(Event.CREATOR);
         dateLong = in.readLong();
@@ -105,6 +106,7 @@ public class Plan  implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(name);
+        dest.writeString(date.toString());
         dest.writeString(dbKey);
         dest.writeTypedList(events);
         dest.writeLong(dateLong);

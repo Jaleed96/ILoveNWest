@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -22,7 +21,6 @@ public class EditPlan extends AppCompatActivity {
     public static Date PLAN_DATE;
     public static ArrayList<Event> EVENT_LIST = new ArrayList<Event>();
     private ListView lv;
-    private boolean editExisting = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,10 +28,9 @@ public class EditPlan extends AppCompatActivity {
         setContentView(R.layout.activity_edit_plan);
 
         // If our current plan hasn't been populated already, try to check Extras
-        if(CURRENT_PLAN == null){
+        if (CURRENT_PLAN == null) {
             CURRENT_PLAN = getIntent().getParcelableExtra("plan");
-            if(CURRENT_PLAN != null){
-                editExisting = true;
+            if (CURRENT_PLAN != null) {
                 PLAN_NAME = CURRENT_PLAN.getName();
                 PLAN_DATE = new Date(CURRENT_PLAN.getLong());
                 EVENT_LIST = CURRENT_PLAN.getEvents();
@@ -46,18 +43,17 @@ public class EditPlan extends AppCompatActivity {
         EditText date = findViewById(R.id.planDate);
         date.setText(PLAN_DATE.toString());
 
-        if(!editExisting){
-            // Get the list of new events to be added to the plan
-            ArrayList<Event> newEventsList = getIntent().getParcelableArrayListExtra("newEventsList");
+        // Get the list of new events to be added to the plan
+        ArrayList<Event> newEventsList = getIntent().getParcelableArrayListExtra("newEventsList");
 
-            // Add the new events the plan
+        // Add the new events the plan
+        if (newEventsList != null && newEventsList.size() > 0) {
             for (Event item : newEventsList) {
                 if (!EVENT_LIST.contains(item)) {
                     EVENT_LIST.add(item);
                 }
             }
         }
-
 
         // Populate the list view
         lv = findViewById(R.id.itemList);
@@ -81,8 +77,7 @@ public class EditPlan extends AppCompatActivity {
             // Save to the database
             String id = databaseList.push().getKey();
             databaseList.child(id).setValue(CURRENT_PLAN);
-        }
-        else{
+        } else {
             // Update current plan values
             CURRENT_PLAN.setName(planName.getText().toString());
             CURRENT_PLAN.setDate(new Date(planDate.getText().toString()));
@@ -98,6 +93,7 @@ public class EditPlan extends AppCompatActivity {
         Intent i = new Intent(getApplicationContext(), ViewPlans.class);
         i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(i);
+        finish();
     }
 
     public void onCancelClick(View view) {
@@ -116,12 +112,12 @@ public class EditPlan extends AppCompatActivity {
         startActivity(i);
     }
 
-    private void clearData(){
+    private void clearData() {
         CURRENT_PLAN = null;
         PLAN_NAME = null;
         PLAN_DATE = null;
-        editExisting = false;
     }
+
 
     private class GetContacts extends AsyncTask<Void, Void, Void> {
         @Override
@@ -135,12 +131,6 @@ public class EditPlan extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(Void result) {
-        }
-    }
-    public void onStop(){
-        super.onStop();
-        if(editExisting){
-            clearData();
         }
     }
 }

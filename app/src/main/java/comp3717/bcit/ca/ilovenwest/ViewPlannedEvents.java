@@ -21,7 +21,5 @@ public class ViewPlannedEvents extends AppCompatActivity {
         super.onStart();
         ViewPlannedEventsAdapter adapter = new ViewPlannedEventsAdapter(this, plan.getKey(), plan.getEvents());
         lvEvents.setAdapter(adapter);
-
-
     }
 }
