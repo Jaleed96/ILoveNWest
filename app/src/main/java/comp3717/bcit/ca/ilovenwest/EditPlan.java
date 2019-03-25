@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -21,6 +22,7 @@ public class EditPlan extends AppCompatActivity {
     public static Date PLAN_DATE;
     public static ArrayList<Event> EVENT_LIST = new ArrayList<Event>();
     private ListView lv;
+    private boolean editExisting = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,8 +33,9 @@ public class EditPlan extends AppCompatActivity {
         if(CURRENT_PLAN == null){
             CURRENT_PLAN = getIntent().getParcelableExtra("plan");
             if(CURRENT_PLAN != null){
+                editExisting = true;
                 PLAN_NAME = CURRENT_PLAN.getName();
-                PLAN_DATE = CURRENT_PLAN.getDate();
+                PLAN_DATE = new Date(CURRENT_PLAN.getLong());
                 EVENT_LIST = CURRENT_PLAN.getEvents();
             }
         }
@@ -43,15 +46,18 @@ public class EditPlan extends AppCompatActivity {
         EditText date = findViewById(R.id.planDate);
         date.setText(PLAN_DATE.toString());
 
-        // Get the list of new events to be added to the plan
-        ArrayList<Event> newEventsList = getIntent().getParcelableArrayListExtra("newEventsList");
+//        if(!editExisting){
+            // Get the list of new events to be added to the plan
+            ArrayList<Event> newEventsList = getIntent().getParcelableArrayListExtra("newEventsList");
 
-        // Add the new events the plan
-        for (Event item : newEventsList) {
-            if (!EVENT_LIST.contains(item)) {
-                EVENT_LIST.add(item);
+            // Add the new events the plan
+            for (Event item : newEventsList) {
+                if (!EVENT_LIST.contains(item)) {
+                    EVENT_LIST.add(item);
+                }
             }
-        }
+//        }
+
 
         // Populate the list view
         lv = findViewById(R.id.itemList);
@@ -114,6 +120,7 @@ public class EditPlan extends AppCompatActivity {
         CURRENT_PLAN = null;
         PLAN_NAME = null;
         PLAN_DATE = null;
+        editExisting = false;
     }
 
     private class GetContacts extends AsyncTask<Void, Void, Void> {
@@ -129,5 +136,21 @@ public class EditPlan extends AppCompatActivity {
         @Override
         protected void onPostExecute(Void result) {
         }
+    }
+    public void onPause(){
+        super.onPause();
+        Log.d("println", "pause");
+    }
+    public void onStop(){
+        super.onStop();
+//        if(editExisting){
+//            clearData();
+//        }
+
+        Log.d("println", "stop");
+    }
+    public void onDestroy(){
+        super.onDestroy();
+        Log.d("println", "destroy");
     }
 }

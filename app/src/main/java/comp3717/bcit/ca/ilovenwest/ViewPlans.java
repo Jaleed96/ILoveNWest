@@ -61,7 +61,9 @@ public class ViewPlans extends AppCompatActivity {
                 lvPlans.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener(){
                     @Override
                     public boolean onItemLongClick(AdapterView parent, View view, int position, long id) {
-
+                        Intent i = new Intent (ViewPlans.this, EditPlan.class);
+                        i.putExtra("plan", planList.get(position));
+                        startActivity(i);
                         return true;
                     }
                 });
