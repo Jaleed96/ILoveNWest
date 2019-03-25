@@ -12,25 +12,30 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ViewPlansAdapter extends ArrayAdapter<Plan> {
-    Activity context;
-    List<Plan> plans;
+    private Activity context;
+    private List<Plan> plans;
 
     public ViewPlansAdapter(Activity context, ArrayList<Plan> plans){
         super(context, 0, plans);
         this.context = context;
         this.plans = plans;
-
     }
 
     @NonNull
     @Override
     public View getView(int position, View convertView, ViewGroup parent){
         LayoutInflater inflater = context.getLayoutInflater();
-
         View listViewItem = inflater.inflate(R.layout.view_plan_list, null, true);
-        TextView date = listViewItem.findViewById(R.id.eventDate);
 
+        // Find the relevant text views
+        TextView name = listViewItem.findViewById(R.id.planName);
+        TextView date = listViewItem.findViewById(R.id.planDate);
+
+        // Get the current plan
         Plan plan = plans.get(position);
+
+        // Set adapter item
+        name.setText(plan.getName());
         date.setText(plan.getDate().toString());
 
         return listViewItem;

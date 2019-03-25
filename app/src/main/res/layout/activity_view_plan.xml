@@ -7,6 +7,22 @@
     android:orientation="vertical"
     tools:context=".ViewPlans">
 
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/yourPlansTitle"
+        android:textStyle="bold"
+        android:textSize="25sp"/>
+
+    <TextView
+        android:id="@+id/subtitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/selectPlans"
+        android:textSize="18sp"/>
+
     <ListView
         android:id="@+id/planList"
         android:layout_width="fill_parent"

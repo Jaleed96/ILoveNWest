@@ -60,7 +60,6 @@ public class ViewPlans extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-
             }
         });
     }
