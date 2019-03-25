@@ -5,4 +5,9 @@
     <color name="colorAccent">#D81B60</color>
     <color name="colorListItem1">#8fb9a8</color>
     <color name="colorListItem2">#F1d1b5</color>
+    <color name="platinum">#E6E8E6</color>
+    <color name="arsenic">#394648</color>
+    <color name="green">#69995D</color>
+    <color name="orange">#F85A3E</color>
+    <color name="blue">#2E5266</color>
 </resources>

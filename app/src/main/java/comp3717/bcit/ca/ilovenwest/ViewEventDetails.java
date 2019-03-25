@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 
 public class ViewEventDetails extends AppCompatActivity {
@@ -24,11 +26,13 @@ public class ViewEventDetails extends AppCompatActivity {
 
         TextView eventDescriptionTv = findViewById(R.id.eventDesc);
         eventDescriptionTv.setText(curEvent.getDescriptn());
+
+
     }
 
     protected void onClickGotoMaps(View v) {
         Intent browse = new Intent( Intent.ACTION_VIEW , Uri.parse( "https://www.google.com/maps/search/?api=1&query="+curEvent.getY()+","+curEvent.getX() ) );
 
-        startActivity( browse );
+        startActivity(browse);
     }
 }

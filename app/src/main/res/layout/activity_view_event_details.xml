@@ -8,20 +8,37 @@
     tools:context=".ViewEventDetails">
 
     <TextView
+        android:id="@+id/eventNameKey"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:text="@string/eventNameTextView" />
+
+    <TextView
         android:id="@+id/eventName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="eventName" />
 
     <TextView
+        android:id="@+id/eventDescLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:text="@string/eventDescLabel" />
+
+    <TextView
         android:id="@+id/eventDesc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:text="eventDesc" />
 
     <Button
         android:id="@+id/goToMaps"
-        android:layout_width="match_parent"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="onClickGotoMaps"
         android:text="@string/mapsBtn" />

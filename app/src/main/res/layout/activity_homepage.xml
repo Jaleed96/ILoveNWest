@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/orange"
     tools:context=".Homepage">
 
     <ImageView
@@ -22,25 +23,30 @@
         android:layout_gravity="center"
         android:layout_marginTop="60dp"
         android:text="@string/appName"
+        android:textColor="@color/platinum"
         android:textSize="30sp"
         android:textStyle="bold" />
 
     <Button
         android:id="@+id/viewPlanBtn"
-        android:layout_width="wrap_content"
+        android:layout_width="140dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="50dp"
         android:onClick="onClickViewPlans"
+        android:background="@color/blue"
+        android:textColor="@color/platinum"
         android:text="@string/viewPlan" />
 
     <Button
         android:id="@+id/createPlanBtn"
-        android:layout_width="wrap_content"
+        android:layout_width="140dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
         android:onClick="onClickCreatePlan"
+        android:background="@color/green"
+        android:textColor="@color/platinum"
         android:text="@string/createPlanBtn" />
 
 </LinearLayout>
