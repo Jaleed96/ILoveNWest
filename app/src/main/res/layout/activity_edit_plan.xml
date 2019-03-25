@@ -34,6 +34,7 @@
         android:orientation="horizontal">
 
         <Button
+            android:id="@+id/confirmBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@android:drawable/btn_default"
@@ -42,12 +43,22 @@
             android:text="@string/button_ok" />
 
         <Button
+            android:id="@+id/cancelBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@android:drawable/btn_default"
             android:onClick="onCancelClick"
             android:padding="10dp"
             android:text="@string/button_no" />
+
+        <Button
+            android:id="@+id/removeBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:drawable/btn_default"
+            android:onClick="onRemoveClick"
+            android:padding="10dp"
+            android:text="Remove" />
     </LinearLayout>
 
     <FrameLayout
@@ -67,7 +78,7 @@
             android:layout_margin="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
-            android:onClick="onAddClick"
+            android:onClick="onFloatButtonClick"
             android:src="@android:drawable/ic_input_add" />
     </FrameLayout>
 </LinearLayout>

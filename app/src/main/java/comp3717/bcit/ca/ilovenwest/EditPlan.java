@@ -1,10 +1,13 @@
 package comp3717.bcit.ca.ilovenwest;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
 
@@ -20,7 +23,9 @@ public class EditPlan extends AppCompatActivity {
     public static String PLAN_NAME;
     public static Date PLAN_DATE;
     public static ArrayList<Event> EVENT_LIST = new ArrayList<Event>();
+    private ArrayList<Event> selectedEvents = new ArrayList<Event>();
     private ListView lv;
+    private boolean removeMode = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,7 +88,8 @@ public class EditPlan extends AppCompatActivity {
             CURRENT_PLAN.setDate(new Date(planDate.getText().toString()));
             CURRENT_PLAN.setEvent(EVENT_LIST);
 
-            // TODO: add logic to update rather than create in the database
+            // TODO: untest logic for updating
+            databaseList.child(CURRENT_PLAN.getKey()).setValue(CURRENT_PLAN);
         }
 
         // Zero-out the current plan
@@ -106,10 +112,26 @@ public class EditPlan extends AppCompatActivity {
         startActivity(i);
     }
 
-    public void onAddClick(View view) {
-        // Start choosing a new activity and adding its events
-        Intent i = new Intent(this, ChooseActivity.class);
-        startActivity(i);
+    public void onFloatButtonClick(View view){
+        if(!removeMode){
+            // Start choosing a new activity and adding its events
+            Intent i = new Intent(this, ChooseActivity.class);
+            startActivity(i);
+        }
+        else{
+            // Remove the event from the main list
+            for(Event item : selectedEvents){
+                EVENT_LIST.remove(item);
+            }
+
+            // Clear the selected events
+            selectedEvents = new ArrayList<Event>();
+            setAddMode();
+
+            // Update the adapter
+            ScheduleActivitiesAdapter adapter = new ScheduleActivitiesAdapter(EditPlan.this, EVENT_LIST);
+            lv.setAdapter(adapter);
+        }
     }
 
     private void clearData() {
@@ -118,6 +140,17 @@ public class EditPlan extends AppCompatActivity {
         PLAN_DATE = null;
     }
 
+    private void setAddMode(){
+        removeMode = false;
+        FloatingActionButton floatBtn = findViewById(R.id.addEntryButton);
+        floatBtn.setImageResource(android.R.drawable.ic_input_add);
+    }
+
+    private void setRemoveMode(){
+        removeMode = true;
+        FloatingActionButton floatBtn = findViewById(R.id.addEntryButton);
+        floatBtn.setImageResource(android.R.drawable.ic_delete);
+    }
 
     private class GetContacts extends AsyncTask<Void, Void, Void> {
         @Override
@@ -125,6 +158,28 @@ public class EditPlan extends AppCompatActivity {
             // Set the adapter for the list view
             ScheduleActivitiesAdapter adapter = new ScheduleActivitiesAdapter(EditPlan.this, EVENT_LIST);
             lv.setAdapter(adapter);
+
+            lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    Event selectedEvent = EVENT_LIST.get(position);
+                    if(!selectedEvents.contains(selectedEvent)){
+                        selectedEvents.add(selectedEvent);
+                        view.setBackgroundResource(R.color.colorListItem1);
+                    }
+                    else{
+                        selectedEvents.remove(selectedEvent);
+                        view.setBackgroundResource(R.color.colorListItem2);
+                    }
+
+                    if(selectedEvents.size() > 0){
+                        setRemoveMode();
+                    }
+                    else{
+                        setAddMode();
+                    }
+                }
+            });
 
             return null;
         }
