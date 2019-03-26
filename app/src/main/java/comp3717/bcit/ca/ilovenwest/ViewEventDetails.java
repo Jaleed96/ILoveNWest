@@ -8,8 +8,8 @@ import android.view.View;
 import android.widget.TextView;
 
 public class ViewEventDetails extends AppCompatActivity {
-
     Event curEvent;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,8 +25,10 @@ public class ViewEventDetails extends AppCompatActivity {
     }
 
     protected void onClickGotoMaps(View v) {
-        Intent browse = new Intent( Intent.ACTION_VIEW , Uri.parse( "https://www.google.com/maps/search/?api=1&query="+curEvent.getY()+","+curEvent.getX() ) );
-
-        startActivity( browse );
+        Intent browse = new Intent(
+                Intent.ACTION_VIEW,
+                Uri.parse("https://www.google.com/maps/search/?api=1&query=" + curEvent.getY() + "," + curEvent.getX())
+        );
+        startActivity(browse);
     }
 }

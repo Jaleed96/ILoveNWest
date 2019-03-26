@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/platinum"
     android:orientation="vertical"
     tools:context=".ChooseActivity">
 
@@ -12,57 +13,68 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="30dp"
+        android:padding="10dp"
         android:text="@string/chooseActivity"
         android:textSize="25sp"
         android:textStyle="bold" />
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_gravity="center"
-        android:layout_marginTop="45sp"
+        android:layout_weight="1"
         android:orientation="horizontal">
 
         <ImageButton
             android:id="@+id/historyBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/green"
             android:contentDescription="@string/historyBtn"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
             android:onClick="onClickChooseActivity"
             android:src="@drawable/parchment" />
 
         <ImageButton
             android:id="@+id/artBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/arsenic"
             android:contentDescription="@string/artBtn"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
             android:onClick="onClickChooseActivity"
             android:src="@drawable/palette" />
+
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_gravity="center"
-        android:layout_marginTop="30sp"
+        android:layout_weight="1"
         android:orientation="horizontal">
 
         <ImageButton
             android:id="@+id/cultureBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/blue"
             android:contentDescription="@string/cultureBtn"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
             android:onClick="onClickChooseActivity"
             android:src="@drawable/firecracker" />
 
         <ImageButton
             android:id="@+id/musicBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/orange"
             android:contentDescription="@string/musicBtn"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
             android:onClick="onClickChooseActivity"
             android:src="@drawable/violin" />
     </LinearLayout>

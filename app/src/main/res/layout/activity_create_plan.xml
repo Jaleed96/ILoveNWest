@@ -29,9 +29,10 @@
 
     <Button
         android:id="@+id/button"
-        android:layout_width="wrap_content"
+        android:layout_width="140dp"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
+        android:background="@color/green"
+        android:textColor="#FFF"
         android:text="@string/createPlanBtn"
         android:onClick="onCreatePlan"/>
 
