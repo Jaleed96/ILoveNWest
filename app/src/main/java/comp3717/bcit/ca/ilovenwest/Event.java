@@ -6,47 +6,36 @@ import android.os.Parcelable;
 public class Event implements Parcelable {
     // Instance Members
     private String email;
-    private String address2;
-    private String Address;
+    private String address;
     private String city;
     private String prov;
     private String pcode;
     private String fax;
     private String phone;
-    private String Name;
-    private String Descriptn;
-    private long id;
-    private int category;
+    private String name;
+    private String description;
     private String company;
     private String website;
-    private int social_networks;
     private String summary;
-    private String catname;
     private double X;
     private double Y;
 
     public Event(){
-
     }
 
     protected Event(Parcel in) {
         email = in.readString();
-        address2 = in.readString();
-        Address = in.readString();
+        address = in.readString();
         city = in.readString();
         prov = in.readString();
         pcode = in.readString();
         fax = in.readString();
         phone = in.readString();
-        Name = in.readString();
-        Descriptn = in.readString();
-        id = in.readLong();
-        category = in.readInt();
+        name = in.readString();
+        description = in.readString();
         company = in.readString();
         website = in.readString();
-        social_networks = in.readInt();
         summary = in.readString();
-        catname = in.readString();
         X = in.readDouble();
         Y = in.readDouble();
     }
@@ -72,20 +61,12 @@ public class Event implements Parcelable {
         this.email = email;
     }
 
-    public String getAddress2() {
-        return address2;
-    }
-
-    public void setAddress2(String address2) {
-        this.address2 = address2;
-    }
-
     public String getAddress() {
-        return Address;
+        return address;
     }
 
     public void setAddress(String address) {
-        Address = address;
+        this.address = address;
     }
 
     public String getCity() {
@@ -129,35 +110,19 @@ public class Event implements Parcelable {
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
     public void setName(String name) {
-        Name = name;
+        this.name = name;
     }
 
-    public String getDescriptn() {
-        return Descriptn;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDescriptn(String descriptn) {
-        Descriptn = descriptn;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public int getCategory() {
-        return category;
-    }
-
-    public void setCategory(int category) {
-        this.category = category;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getCompany() {
@@ -176,28 +141,12 @@ public class Event implements Parcelable {
         this.website = website;
     }
 
-    public int getSocial_networks() {
-        return social_networks;
-    }
-
-    public void setSocial_networks(int social_networks) {
-        this.social_networks = social_networks;
-    }
-
     public String getSummary() {
         return summary;
     }
 
     public void setSummary(String summary) {
         this.summary = summary;
-    }
-
-    public String getCatname() {
-        return catname;
-    }
-
-    public void setCatname(String catname) {
-        this.catname = catname;
     }
 
     public double getX() {
@@ -224,22 +173,17 @@ public class Event implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(email);
-        dest.writeString(address2);
-        dest.writeString(Address);
+        dest.writeString(address);
         dest.writeString(city);
         dest.writeString(prov);
         dest.writeString(pcode);
         dest.writeString(fax);
         dest.writeString(phone);
-        dest.writeString(Name);
-        dest.writeString(Descriptn);
-        dest.writeLong(id);
-        dest.writeInt(category);
+        dest.writeString(name);
+        dest.writeString(description);
         dest.writeString(company);
         dest.writeString(website);
-        dest.writeInt(social_networks);
         dest.writeString(summary);
-        dest.writeString(catname);
         dest.writeDouble(X);
         dest.writeDouble(Y);
     }

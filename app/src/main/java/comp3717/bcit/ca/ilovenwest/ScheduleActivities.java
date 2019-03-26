@@ -18,12 +18,9 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 public class ScheduleActivities extends AppCompatActivity {
-    private static String EVENTS_URL = "http://opendata.newwestcity.ca/downloads/cultural-events/EVENTS.json";
     private static String HISTORY_URL = "http://opendata.newwestcity.ca/downloads/cultural-events/EVENTS.json";
-    private static String CULTURE_URL = "http://opendata.newwestcity.ca/downloads/cultural-events/EVENTS.json";
     private static String MUSIC_URL = "http://opendata.newwestcity.ca/downloads/cultural-events/EVENTS.json";
     private static String selectedUrl = "";
-    private String category;
     private ArrayList<Event> eventList;
     private ArrayList<Event> eventSelectedList;
     private ListView lv;
@@ -32,22 +29,21 @@ public class ScheduleActivities extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_schedule_activities);
-
         lv = findViewById(R.id.eventList);
 
-        category = "event"; //getIntent().getExtras().getString("category");
+        String category = getIntent().getExtras().getString("category");
         switch(category){
-            case "event":
-                selectedUrl = EVENTS_URL;
+            case "Culture":
+                selectedUrl = "http://opendata.newwestcity.ca/downloads/cultural-events/EVENTS.json";
                 break;
-            case "history":
-                selectedUrl = HISTORY_URL;
+            case "History":
+                selectedUrl = "http://opendata.newwestcity.ca/downloads/heritage-interest/HERITAGE_INTEREST.json";
                 break;
-            case "culture":
-                selectedUrl = CULTURE_URL;
+            case "Art":
+                selectedUrl = "http://opendata.newwestcity.ca/downloads/public-art/PUBLIC_ART.json";
                 break;
-            case "music":
-                selectedUrl = MUSIC_URL;
+            case "Music":
+                selectedUrl = "http://opendata.newwestcity.ca/downloads/cultural-venues/VENUES.json";
                 break;
             default:
                 break;
@@ -90,13 +86,17 @@ public class ScheduleActivities extends AppCompatActivity {
 
                     for(int i=0; i<test.length(); i++){
                         JSONObject item = test.getJSONObject(i).getJSONObject("properties");
-
                         Event currentEvent = new Event();
-                        currentEvent.setDescriptn(item.getString("Descriptn"));
+
+                        // Map json properties to event properties
+                        currentEvent.setName(item.getString("Name"));
+                        currentEvent.setSummary(item.getString("summary"));
+                        currentEvent.setDescription(item.getString("Descriptn"));
+                        currentEvent.setWebsite(item.getString("website"));
                         currentEvent.setAddress(item.getString("Address"));
+                        currentEvent.setEmail(item.getString("email"));
                         currentEvent.setX(Double.parseDouble(item.getString("X")));
                         currentEvent.setY(Double.parseDouble(item.getString("Y")));
-                        currentEvent.setName(item.getString("Name"));
 
                         eventList.add(currentEvent);
                     }

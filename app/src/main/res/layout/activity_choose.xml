@@ -37,7 +37,7 @@
             android:id="@+id/artBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:contentDescription="@string/historyBtn"
+            android:contentDescription="@string/artBtn"
             android:onClick="onClickChooseActivity"
             android:src="@drawable/palette" />
     </LinearLayout>
@@ -50,11 +50,11 @@
         android:orientation="horizontal">
 
         <ImageButton
-            android:id="@+id/scienceBtn"
+            android:id="@+id/cultureBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="20dp"
-            android:contentDescription="@string/historyBtn"
+            android:contentDescription="@string/cultureBtn"
             android:onClick="onClickChooseActivity"
             android:src="@drawable/firecracker" />
 
@@ -62,7 +62,7 @@
             android:id="@+id/musicBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:contentDescription="@string/historyBtn"
+            android:contentDescription="@string/musicBtn"
             android:onClick="onClickChooseActivity"
             android:src="@drawable/violin" />
     </LinearLayout>

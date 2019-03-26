@@ -7,8 +7,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-
 public class ViewEventDetails extends AppCompatActivity {
 
     Event curEvent;
@@ -23,7 +21,7 @@ public class ViewEventDetails extends AppCompatActivity {
         eventNameTv.setText(curEvent.getName());
 
         TextView eventDescriptionTv = findViewById(R.id.eventDesc);
-        eventDescriptionTv.setText(curEvent.getDescriptn());
+        eventDescriptionTv.setText(curEvent.getDescription());
     }
 
     protected void onClickGotoMaps(View v) {

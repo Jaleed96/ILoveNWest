@@ -15,6 +15,7 @@ public class ChooseActivity extends AppCompatActivity {
 
     public void onClickChooseActivity(View v) {
         Intent i = new Intent(this, ScheduleActivities.class);
+        i.putExtra("category", v.getContentDescription());
         startActivity(i);
     }
 }

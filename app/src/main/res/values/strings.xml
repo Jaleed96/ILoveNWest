@@ -5,7 +5,7 @@
     <string name="chooseActivity">Choose activity type</string>
     <string name="historyBtn">History</string>
     <string name="artBtn">Art</string>
-    <string name="scienceBtn">Science</string>
+    <string name="cultureBtn">Culture</string>
     <string name="musicBtn">Music</string>
     <string name="label_add">Add Selected</string>
     <string name="label_plans_title">Your Plans</string>
