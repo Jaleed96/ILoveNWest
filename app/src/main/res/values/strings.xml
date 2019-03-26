@@ -22,4 +22,6 @@
     <string name="contactInfoLabel">Contact:</string>
     <string name="phoneNumberLabel">Phone Number:</string>
     <string name="websiteLabel">Website:</string>
+    <string name="edit">Edit</string>
+    <string name="delete">Delete</string>
 </resources>

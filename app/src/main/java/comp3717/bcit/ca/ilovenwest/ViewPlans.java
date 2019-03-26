@@ -5,9 +5,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.PopupMenu;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -21,6 +23,7 @@ public class ViewPlans extends AppCompatActivity {
     ListView lvPlans;
     ArrayList<Plan> planList;
     DatabaseReference databaseList;
+    int menuPosition;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,10 +69,25 @@ public class ViewPlans extends AppCompatActivity {
         lvPlans.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent i = new Intent(ViewPlans.this, EditPlan.class);
-                Plan plan = planList.get(position);
-                i.putExtra("plan", plan);
-                startActivity(i);
+                PopupMenu menu = new PopupMenu(ViewPlans.this, view);
+                menu.getMenuInflater().inflate(R.menu.plans_popup, menu.getMenu());
+                menuPosition = position;
+                menu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem item) {
+                        if(item.getTitle().equals("Edit")){
+                            Intent i = new Intent(ViewPlans.this, EditPlan.class);
+                            Plan plan = planList.get(menuPosition);
+                            i.putExtra("plan", plan);
+                            startActivity(i);
+                        } else if(item.getTitle().equals("Delete")){
+                            databaseList.child(planList.get(menuPosition).getKey()).removeValue();
+                        }
+                        return true;
+                    }
+                });
+                menu.show();
+
                 return true;
             }
         });

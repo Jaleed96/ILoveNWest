@@ -22,6 +22,11 @@ public class ViewPlannedEvents extends AppCompatActivity {
         eventList = plan.getEvents();
     }
 
+    public void onEdit(View view){
+        Intent i = new Intent(this, EditPlan.class);
+        i.putExtra("plan", plan);
+        startActivity(i);
+    }
     @Override
     protected void onStart(){
         super.onStart();
