@@ -8,6 +8,13 @@
     android:background="@color/platinum"
     tools:context=".ViewEventDetails">
 
+    <ImageView
+        android:id="@+id/categoryImage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10sp"
+        android:layout_marginBottom="10sp"/>
+
     <TextView
         android:id="@+id/eventNameKey"
         android:layout_width="match_parent"
