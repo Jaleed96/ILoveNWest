@@ -29,4 +29,9 @@
     <string name="planDateLabel">Plan Date: </string>
     <string name="eventsLabel">Planned Events</string>
     <string name="plannedEventsLabel">Planned Events</string>
+    <string name="loginTitle">Welcome!</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="signup">Sign Up</string>
 </resources>

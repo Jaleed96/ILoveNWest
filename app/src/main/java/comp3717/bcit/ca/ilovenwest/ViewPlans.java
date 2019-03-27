@@ -1,6 +1,5 @@
 package comp3717.bcit.ca.ilovenwest;
 
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -27,16 +26,13 @@ public class ViewPlans extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        // Instantiate variables
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_plan);
-        lvPlans = findViewById(R.id.planList);
         planList = new ArrayList<>();
-        databaseList = FirebaseDatabase.getInstance().getReference("plans");
-    }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
+        // Setup database listener
+        databaseList = FirebaseDatabase.getInstance().getReference("plans");
         databaseList.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -56,6 +52,8 @@ public class ViewPlans extends AppCompatActivity {
             }
         });
 
+        // List View and its handlers
+        lvPlans = findViewById(R.id.planList);
         lvPlans.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -87,7 +85,6 @@ public class ViewPlans extends AppCompatActivity {
                     }
                 });
                 menu.show();
-
                 return true;
             }
         });
