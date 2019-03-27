@@ -24,7 +24,7 @@ public class ViewEventDetails extends AppCompatActivity {
         eventDescriptionTv.setText(curEvent.getDescription());
     }
 
-    protected void onClickGotoMaps(View v) {
+    public void onClickGotoMaps(View v) {
         Intent browse = new Intent(
                 Intent.ACTION_VIEW,
                 Uri.parse("https://www.google.com/maps/search/?api=1&query=" + curEvent.getY() + "," + curEvent.getX())

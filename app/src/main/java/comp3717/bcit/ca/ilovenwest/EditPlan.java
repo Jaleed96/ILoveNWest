@@ -37,7 +37,7 @@ public class EditPlan extends AppCompatActivity {
             CURRENT_PLAN = getIntent().getParcelableExtra("plan");
             if (CURRENT_PLAN != null) {
                 PLAN_NAME = CURRENT_PLAN.getName();
-                PLAN_DATE = new Date(CURRENT_PLAN.getLong());
+                PLAN_DATE = CURRENT_PLAN.getDate();
                 EVENT_LIST = CURRENT_PLAN.getEvents();
             }
         }

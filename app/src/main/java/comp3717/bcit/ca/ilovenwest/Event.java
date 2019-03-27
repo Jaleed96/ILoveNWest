@@ -13,6 +13,7 @@ public class Event implements Parcelable {
     private String fax;
     private String phone;
     private String name;
+    private String category;
     private String description;
     private String company;
     private String website;
@@ -32,6 +33,7 @@ public class Event implements Parcelable {
         fax = in.readString();
         phone = in.readString();
         name = in.readString();
+        category = in.readString();
         description = in.readString();
         company = in.readString();
         website = in.readString();
@@ -117,6 +119,14 @@ public class Event implements Parcelable {
         this.name = name;
     }
 
+    public String getCategory(){
+        return category;
+    }
+
+    public void setCategory(String category){
+        this.category = category;
+    }
+
     public String getDescription() {
         return description;
     }
@@ -180,6 +190,7 @@ public class Event implements Parcelable {
         dest.writeString(fax);
         dest.writeString(phone);
         dest.writeString(name);
+        dest.writeString(category);
         dest.writeString(description);
         dest.writeString(company);
         dest.writeString(website);

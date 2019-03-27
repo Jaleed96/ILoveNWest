@@ -18,8 +18,6 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 public class ScheduleActivities extends AppCompatActivity {
-    private static String HISTORY_URL = "http://opendata.newwestcity.ca/downloads/cultural-events/EVENTS.json";
-    private static String MUSIC_URL = "http://opendata.newwestcity.ca/downloads/cultural-events/EVENTS.json";
     private static String selectedUrl = "";
     private ArrayList<Event> eventList;
     private ArrayList<Event> eventSelectedList;
@@ -74,8 +72,6 @@ public class ScheduleActivities extends AppCompatActivity {
             // Making a request to url and getting response
             String jsonStr = sh.makeServiceCall(selectedUrl);
 
-            Log.e(TAG, "Response from url: " + jsonStr);
-
             if (jsonStr != null) {
                 try {
                     // Getting JSON Array node
@@ -90,6 +86,7 @@ public class ScheduleActivities extends AppCompatActivity {
 
                         // Map json properties to event properties
                         currentEvent.setName(item.getString("Name"));
+                        currentEvent.setCategory(item.getString("catname"));
                         currentEvent.setSummary(item.getString("summary"));
                         currentEvent.setDescription(item.getString("Descriptn"));
                         currentEvent.setWebsite(item.getString("website"));
@@ -100,8 +97,6 @@ public class ScheduleActivities extends AppCompatActivity {
 
                         eventList.add(currentEvent);
                     }
-
-                    System.out.println(eventList.size());
                 } catch (final JSONException e) {
                     Log.e(TAG, "Json parsing error: " + e.getMessage());
                     runOnUiThread(new Runnable() {
@@ -125,9 +120,7 @@ public class ScheduleActivities extends AppCompatActivity {
                                 .show();
                     }
                 });
-
             }
-
             return null;
         }
 
