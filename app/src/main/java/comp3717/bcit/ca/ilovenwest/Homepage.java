@@ -1,6 +1,7 @@
 package comp3717.bcit.ca.ilovenwest;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -22,5 +23,19 @@ public class Homepage extends AppCompatActivity {
     public void onClickViewPlans(View v) {
         Intent i = new Intent(this, ViewPlans.class);
         startActivity(i);
+    }
+
+    public void onSignOut(View v){
+        // Clear shared preferences
+        SharedPreferences sp = getSharedPreferences("Login", MODE_PRIVATE);
+        SharedPreferences.Editor Ed = sp.edit();
+        Ed.clear();
+        Ed.apply();
+
+        // Return to login page
+        Intent i = new Intent(this, login.class);
+        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(i);
+        finish();
     }
 }
