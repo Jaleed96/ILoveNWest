@@ -9,21 +9,23 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="vertical">
 
         <EditText
             android:id="@+id/planName"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/label_edit_plan_title"
+            android:layout_margin="12sp"
             android:textSize="20sp"
             android:textStyle="bold" />
 
         <EditText
             android:id="@+id/planDate"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="18sp"
+            android:layout_margin="12sp"
+            android:textSize="20sp"
             android:textStyle="bold" />
 
     </LinearLayout>
@@ -37,30 +39,45 @@
             android:id="@+id/confirmBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@android:drawable/btn_default"
+            android:background="@color/green"
+            android:textColor="@color/platinum"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
             android:onClick="onConfirmClick"
-            android:padding="10dp"
+            android:layout_margin="10sp"
             android:text="@string/button_ok" />
 
         <Button
             android:id="@+id/cancelBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@android:drawable/btn_default"
+            android:background="@color/red"
+            android:textColor="@color/platinum"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
             android:onClick="onCancelClick"
-            android:padding="10dp"
+            android:layout_margin="10sp"
             android:text="@string/button_no" />
 
         <Button
             android:id="@+id/clearBtn"
-            android:layout_width="wrap_content"
+            android:layout_width="140dp"
             android:layout_height="wrap_content"
-            android:background="@android:drawable/btn_default"
+            android:background="@color/mustard"
+            android:textColor="@color/platinum"
             android:onClick="onClearSelectedClick"
-            android:padding="10dp"
+            android:layout_margin="10sp"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
             android:text="@string/button_clear"
             android:visibility="gone" />
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/eventsLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:padding="5sp"
+        android:text="@string/eventsLabel"
+        android:textSize="25dp" />
 
     <FrameLayout
         android:layout_width="match_parent"

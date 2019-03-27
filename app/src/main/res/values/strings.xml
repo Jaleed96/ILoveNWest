@@ -9,7 +9,7 @@
     <string name="musicBtn">Music</string>
     <string name="label_add">Add Selected</string>
     <string name="label_plans_title">Your Plans</string>
-    <string name="label_edit_plan_title">New Plan</string>
+    <string name="label_edit_plan_title">Plan Name</string>
     <string name="button_ok">Confirm</string>
     <string name="button_no">Cancel</string>
     <string name="button_clear">Clear Selected</string>
@@ -24,4 +24,9 @@
     <string name="websiteLabel">Website:</string>
     <string name="edit">Edit</string>
     <string name="delete">Delete</string>
+    <string name="chooseActivitiesLabel">Choose Activities</string>
+    <string name="planNameLabel">Plan Name: </string>
+    <string name="planDateLabel">Plan Date: </string>
+    <string name="eventsLabel">Planned Events</string>
+    <string name="plannedEventsLabel">Planned Events</string>
 </resources>

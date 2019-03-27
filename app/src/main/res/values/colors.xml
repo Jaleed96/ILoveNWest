@@ -10,4 +10,8 @@
     <color name="green">#69995D</color>
     <color name="orange">#F85A3E</color>
     <color name="blue">#2E5266</color>
+    <color name="offWhite">#F5F9E9</color>
+    <color name="red">#A22C29</color>
+    <color name="mustard">#EC9A29</color>
+    <color name="whiteOrange">#F0C987</color>
 </resources>

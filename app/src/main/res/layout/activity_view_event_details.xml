@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/platinum"
     tools:context=".ViewEventDetails">
 
     <TextView
@@ -12,6 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textStyle="bold"
+        android:layout_margin="10sp"
         android:textSize="20sp"
         android:text="@string/eventNameTextView" />
 
@@ -19,6 +21,8 @@
         android:id="@+id/eventName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:layout_marginStart="10sp"
         android:text="eventName" />
 
     <TextView
@@ -27,19 +31,34 @@
         android:layout_height="wrap_content"
         android:textStyle="bold"
         android:textSize="20sp"
+        android:layout_margin="10sp"
         android:text="@string/eventDescLabel" />
 
-    <TextView
-        android:id="@+id/eventDesc"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="eventDesc" />
+        android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/eventDesc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10sp"
+                android:layout_marginEnd="10sp"
+                android:text="eventDesc"
+                android:textSize="20sp" />
+    </ScrollView>
 
     <Button
         android:id="@+id/goToMaps"
         android:layout_gravity="center"
-        android:layout_width="wrap_content"
+        android:layout_width="140dp"
+        android:layout_marginTop="10sp"
+        android:layout_marginBottom="10sp"
         android:layout_height="wrap_content"
+        android:background="@color/blue"
+        android:textColor="@color/platinum"
+        android:foreground="?attr/selectableItemBackgroundBorderless"
         android:onClick="onClickGotoMaps"
         android:text="@string/mapsBtn" />
 

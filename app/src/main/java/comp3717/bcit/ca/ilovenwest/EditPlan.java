@@ -172,7 +172,7 @@ public class EditPlan extends AppCompatActivity {
                         view.setBackgroundResource(R.color.colorListItem1);
                     } else {
                         selectedEvents.remove(selectedEvent);
-                        view.setBackgroundResource(R.color.colorListItem2);
+                        view.setBackgroundResource(R.color.offWhite);
                     }
 
                     if (selectedEvents.size() > 0) {

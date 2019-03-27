@@ -35,7 +35,7 @@ public class ScheduleActivitiesAdapter extends ArrayAdapter<Event> {
         eventName.setText(event.getName().substring(0, Math.min(event.getName().length(), 30)));
         TextView eventAddress = convertView.findViewById(R.id.eventAddress);
         eventAddress.setText(event.getAddress());
-        convertView.setBackgroundResource(R.color.colorListItem2);
+        convertView.setBackgroundResource(R.color.offWhite);
 
         // Return the completed view to render on screen
         return convertView;
