@@ -17,6 +17,7 @@
         android:ems="10"
         android:gravity="center_vertical"
         android:hint="@string/email"
+        android:textColorHint="#FFF"
         android:inputType="textEmailAddress"
         android:textColor="#FFF" />
 
@@ -27,6 +28,7 @@
         android:layout_gravity="center"
         android:ems="10"
         android:hint="@string/password"
+        android:textColorHint="#FFF"
         android:inputType="textPassword"
         android:textColor="#FFF" />
 
@@ -50,6 +52,7 @@
         android:background="@color/green"
         android:foreground="?attr/selectableItemBackgroundBorderless"
         android:onClick="onSignUp"
+        android:layout_marginTop="5dp"
         android:text="@string/signup"
         android:textColor="#FFF" />
 

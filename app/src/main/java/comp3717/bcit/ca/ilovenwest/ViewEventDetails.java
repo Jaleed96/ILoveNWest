@@ -49,7 +49,8 @@ public class ViewEventDetails extends AppCompatActivity {
     public void onClickGotoMaps(View v) {
         Intent browse = new Intent(
                 Intent.ACTION_VIEW,
-                Uri.parse("https://www.google.com/maps/search/?api=1&query=" + curEvent.getY() + "," + curEvent.getX())
+                //Uri.parse("https://www.google.com/maps/search/?api=1&query=" + curEvent.getY() + "," + curEvent.getX())
+                Uri.parse("https://www.google.com/maps/dir/Current+Location/"+curEvent.getY() + "," + curEvent.getX())
         );
         startActivity(browse);
     }
