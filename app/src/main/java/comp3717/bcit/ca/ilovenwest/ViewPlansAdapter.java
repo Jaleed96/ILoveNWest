@@ -15,7 +15,7 @@ public class ViewPlansAdapter extends ArrayAdapter<Plan> {
     private Activity context;
     private List<Plan> plans;
 
-    public ViewPlansAdapter(Activity context, ArrayList<Plan> plans){
+    public ViewPlansAdapter(Activity context, ArrayList<Plan> plans) {
         super(context, 0, plans);
         this.context = context;
         this.plans = plans;
@@ -23,7 +23,7 @@ public class ViewPlansAdapter extends ArrayAdapter<Plan> {
 
     @NonNull
     @Override
-    public View getView(int position, View convertView, ViewGroup parent){
+    public View getView(int position, View convertView, ViewGroup parent) {
         LayoutInflater inflater = context.getLayoutInflater();
         View listViewItem = inflater.inflate(R.layout.view_plan_list, null, true);
 

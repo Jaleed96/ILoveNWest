@@ -33,7 +33,7 @@ public class ViewPlannedEvents extends AppCompatActivity {
         });
     }
 
-    public void onEdit(View view){
+    public void onEdit(View view) {
         Intent i = new Intent(this, EditPlan.class);
         i.putExtra("plan", plan);
         startActivity(i);

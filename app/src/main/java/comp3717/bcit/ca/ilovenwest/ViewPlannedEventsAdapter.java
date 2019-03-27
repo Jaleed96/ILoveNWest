@@ -16,7 +16,7 @@ public class ViewPlannedEventsAdapter extends ArrayAdapter<Event> {
     String dbKey;
     List<Event> events;
 
-    public ViewPlannedEventsAdapter(Activity context, String dbKey, ArrayList<Event> events){
+    public ViewPlannedEventsAdapter(Activity context, String dbKey, ArrayList<Event> events) {
         super(context, 0, events);
         this.context = context;
         this.events = events;
@@ -24,7 +24,7 @@ public class ViewPlannedEventsAdapter extends ArrayAdapter<Event> {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent){
+    public View getView(int position, View convertView, ViewGroup parent) {
         LayoutInflater inflater = context.getLayoutInflater();
 
         View listViewItem = inflater.inflate(R.layout.view_event_list, null, true);

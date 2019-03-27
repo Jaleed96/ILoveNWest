@@ -22,6 +22,8 @@ public class ScheduleActivities extends AppCompatActivity {
     private ArrayList<Event> eventList;
     private ArrayList<Event> eventSelectedList;
     private ListView lv;
+    private String TAG = ScheduleActivities.class.getSimpleName();
+    private ProgressDialog pDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +32,7 @@ public class ScheduleActivities extends AppCompatActivity {
         lv = findViewById(R.id.eventList);
 
         String category = getIntent().getExtras().getString("category");
-        switch(category){
+        switch (category) {
             case "Culture":
                 selectedUrl = "http://opendata.newwestcity.ca/downloads/cultural-events/EVENTS.json";
                 break;
@@ -50,8 +52,12 @@ public class ScheduleActivities extends AppCompatActivity {
         new ScheduleActivities.GetContacts().execute();
     }
 
-    private String TAG = ScheduleActivities.class.getSimpleName();
-    private ProgressDialog pDialog;
+    public void onAddClick(View view) {
+        Intent i = new Intent(this, EditPlan.class);
+        i.putParcelableArrayListExtra("newEventsList", eventSelectedList);
+        startActivity(i);
+        finish();
+    }
 
     private class GetContacts extends AsyncTask<Void, Void, Void> {
         @Override
@@ -80,7 +86,7 @@ public class ScheduleActivities extends AppCompatActivity {
 
                     eventList = new ArrayList<>();
 
-                    for(int i=0; i<test.length(); i++){
+                    for (int i = 0; i < test.length(); i++) {
                         JSONObject item = test.getJSONObject(i).getJSONObject("properties");
                         Event currentEvent = new Event();
 
@@ -143,23 +149,15 @@ public class ScheduleActivities extends AppCompatActivity {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                     Event selectedEvent = eventList.get(position);
-                    if(!eventSelectedList.contains(selectedEvent)){
+                    if (!eventSelectedList.contains(selectedEvent)) {
                         eventSelectedList.add(selectedEvent);
                         view.setBackgroundResource(R.color.colorListItem1);
-                    }
-                    else{
+                    } else {
                         eventSelectedList.remove(selectedEvent);
-                        view.setBackgroundResource(R.color.colorListItem2);
+                        view.setBackgroundResource(R.color.offWhite);
                     }
                 }
             });
         }
-    }
-
-    public void onAddClick(View view){
-        Intent i = new Intent(this, EditPlan.class);
-        i.putParcelableArrayListExtra("newEventsList", eventSelectedList);
-        startActivity(i);
-        finish();
     }
 }

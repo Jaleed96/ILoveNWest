@@ -4,6 +4,17 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class Event implements Parcelable {
+    public static final Creator<Event> CREATOR = new Creator<Event>() {
+        @Override
+        public Event createFromParcel(Parcel in) {
+            return new Event(in);
+        }
+
+        @Override
+        public Event[] newArray(int size) {
+            return new Event[size];
+        }
+    };
     // Instance Members
     private String email;
     private String address;
@@ -21,7 +32,7 @@ public class Event implements Parcelable {
     private double X;
     private double Y;
 
-    public Event(){
+    public Event() {
     }
 
     protected Event(Parcel in) {
@@ -41,18 +52,6 @@ public class Event implements Parcelable {
         X = in.readDouble();
         Y = in.readDouble();
     }
-
-    public static final Creator<Event> CREATOR = new Creator<Event>() {
-        @Override
-        public Event createFromParcel(Parcel in) {
-            return new Event(in);
-        }
-
-        @Override
-        public Event[] newArray(int size) {
-            return new Event[size];
-        }
-    };
 
     //Getter and Setters
     public String getEmail() {
@@ -119,11 +118,11 @@ public class Event implements Parcelable {
         this.name = name;
     }
 
-    public String getCategory(){
+    public String getCategory() {
         return category;
     }
 
-    public void setCategory(String category){
+    public void setCategory(String category) {
         this.category = category;
     }
 

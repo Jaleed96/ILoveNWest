@@ -16,7 +16,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.ArrayList;
 import java.util.Date;
 
-
 public class EditPlan extends AppCompatActivity {
     public static Plan CURRENT_PLAN;
     public static String PLAN_NAME;
@@ -173,7 +172,7 @@ public class EditPlan extends AppCompatActivity {
                         view.setBackgroundResource(R.color.offWhite);
                     }
 
-                    switch(selectedEvents.size()){
+                    switch (selectedEvents.size()) {
                         case 0:
                             setAddMode();
                             break;

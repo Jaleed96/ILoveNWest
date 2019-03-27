@@ -6,26 +6,37 @@ import android.os.Parcelable;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Plan  implements Parcelable {
+public class Plan implements Parcelable {
+    public static final Creator<Plan> CREATOR = new Creator<Plan>() {
+        @Override
+        public Plan createFromParcel(Parcel in) {
+            return new Plan(in);
+        }
+
+        @Override
+        public Plan[] newArray(int size) {
+            return new Plan[size];
+        }
+    };
     private String name;
     private Date date;
     private ArrayList<Event> events;
     private String dbKey;
 
     public Plan(String name, Date date, ArrayList<Event> events) {
-        this.name = name.isEmpty() ? "New Plan": name;
+        this.name = name.isEmpty() ? "New Plan" : name;
         this.date = date;
         this.events = events;
     }
 
     public Plan(String name, Date date) {
-        this.name = name.isEmpty() ? "New Plan": name;
+        this.name = name.isEmpty() ? "New Plan" : name;
         this.date = date;
         this.events = new ArrayList<Event>();
     }
 
-    public Plan(String name, Date date, String dbKey){
-        this.name = name.isEmpty() ? "New Plan": name;
+    public Plan(String name, Date date, String dbKey) {
+        this.name = name.isEmpty() ? "New Plan" : name;
         this.date = date;
         this.events = new ArrayList<Event>();
         this.dbKey = dbKey;
@@ -44,18 +55,6 @@ public class Plan  implements Parcelable {
         events = in.createTypedArrayList(Event.CREATOR);
     }
 
-    public static final Creator<Plan> CREATOR = new Creator<Plan>() {
-        @Override
-        public Plan createFromParcel(Parcel in) {
-            return new Plan(in);
-        }
-
-        @Override
-        public Plan[] newArray(int size) {
-            return new Plan[size];
-        }
-    };
-
     public ArrayList<Event> getEvents() {
         return events;
     }
@@ -72,18 +71,20 @@ public class Plan  implements Parcelable {
         this.date = date;
     }
 
-    public String getName(){
+    public String getName() {
         return name;
     }
 
-    public void setKey(String key){
-        this.dbKey = key;
+    public void setName(String name) {
+        this.name = name;
     }
-    public String getKey(){
+
+    public String getKey() {
         return dbKey;
     }
-    public void setName(String name){
-        this.name = name;
+
+    public void setKey(String key) {
+        this.dbKey = key;
     }
 
     @Override

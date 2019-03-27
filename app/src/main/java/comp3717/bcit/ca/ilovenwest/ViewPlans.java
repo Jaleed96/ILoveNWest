@@ -73,12 +73,12 @@ public class ViewPlans extends AppCompatActivity {
                 menu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     @Override
                     public boolean onMenuItemClick(MenuItem item) {
-                        if(item.getTitle().equals("Edit")){
+                        if (item.getTitle().equals("Edit")) {
                             Intent i = new Intent(ViewPlans.this, EditPlan.class);
                             Plan plan = planList.get(menuPosition);
                             i.putExtra("plan", plan);
                             startActivity(i);
-                        } else if(item.getTitle().equals("Delete")){
+                        } else if (item.getTitle().equals("Delete")) {
                             databaseList.child(planList.get(menuPosition).getKey()).removeValue();
                         }
                         return true;

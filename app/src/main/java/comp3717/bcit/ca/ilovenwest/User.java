@@ -5,30 +5,30 @@ public class User {
     private String email;
     private String password;
 
-    User(){
+    User() {
 
     }
 
-    User(String email, String password){
+    User(String email, String password) {
         this.email = email;
         this.password = password;
     }
 
-    User(String userId, String email, String password){
+    User(String userId, String email, String password) {
         this.userId = userId;
         this.email = email;
         this.password = password;
     }
 
-    public String getEmail(){
+    public String getEmail() {
         return email;
     }
 
-    public String getPassword(){
+    public String getPassword() {
         return password;
     }
 
-    public String getUserId(){
+    public String getUserId() {
         return userId;
     }
 
@@ -43,10 +43,9 @@ public class User {
         }
 
         final User other = (User) obj;
-        if(this.email.equals(other.email) && this.password.equals(other.password)){
+        if (this.email.equals(other.email) && this.password.equals(other.password)) {
             return true;
-        }
-        else{
+        } else {
             return false;
         }
     }

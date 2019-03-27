@@ -2,8 +2,8 @@ package comp3717.bcit.ca.ilovenwest;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -32,7 +32,7 @@ public class login extends AppCompatActivity {
         String userId = sp1.getString("userId", null);
         String email = sp1.getString("email", null);
 
-        if(userId != null && email != null){
+        if (userId != null && email != null) {
             goToHomePage();
         }
     }
@@ -95,7 +95,7 @@ public class login extends AppCompatActivity {
         goToHomePage();
     }
 
-    private void goToHomePage(){
+    private void goToHomePage() {
         Intent i = new Intent(this, Homepage.class);
         startActivity(i);
         finish();

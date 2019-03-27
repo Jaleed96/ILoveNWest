@@ -17,6 +17,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="12sp"
             android:hint="@string/label_edit_plan_title"
+            android:inputType="textCapWords"
             android:textSize="20sp"
             android:textStyle="bold" />
 
@@ -25,6 +26,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="12sp"
+            android:inputType="text"
             android:textSize="20sp"
             android:textStyle="bold" />
 
@@ -66,7 +68,7 @@
         android:layout_gravity="center"
         android:padding="5sp"
         android:text="@string/eventsLabel"
-        android:textSize="25dp" />
+        android:textSize="25sp" />
 
     <FrameLayout
         android:layout_width="match_parent"

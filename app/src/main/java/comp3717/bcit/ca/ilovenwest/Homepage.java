@@ -10,7 +10,6 @@ import android.view.MenuItem;
 import android.view.View;
 
 public class Homepage extends AppCompatActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,7 +19,7 @@ public class Homepage extends AppCompatActivity {
         nav.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                if(menuItem.getItemId() == R.id.nav_logout){
+                if (menuItem.getItemId() == R.id.nav_logout) {
                     signOut();
                 }
                 return false;
@@ -39,7 +38,7 @@ public class Homepage extends AppCompatActivity {
         startActivity(i);
     }
 
-    private void signOut(){
+    private void signOut() {
         // Clear shared preferences
         SharedPreferences sp = getSharedPreferences("Login", MODE_PRIVATE);
         SharedPreferences.Editor Ed = sp.edit();
