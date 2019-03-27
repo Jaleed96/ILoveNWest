@@ -7,7 +7,6 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 
@@ -88,7 +87,6 @@ public class EditPlan extends AppCompatActivity {
             CURRENT_PLAN.setDate(new Date(planDate.getText().toString()));
             CURRENT_PLAN.setEvent(EVENT_LIST);
 
-            // TODO: untest logic for updating
             databaseList.child(CURRENT_PLAN.getKey()).setValue(CURRENT_PLAN);
         }
 
@@ -175,14 +173,13 @@ public class EditPlan extends AppCompatActivity {
                         view.setBackgroundResource(R.color.offWhite);
                     }
 
-                    if (selectedEvents.size() > 0) {
-                        setRemoveMode();
-                        Button test = findViewById(R.id.clearBtn);
-                        test.setVisibility(View.VISIBLE);
-                    } else {
-                        setAddMode();
-                        Button test = findViewById(R.id.clearBtn);
-                        test.setVisibility(View.GONE);
+                    switch(selectedEvents.size()){
+                        case 0:
+                            setAddMode();
+                            break;
+                        default:
+                            setRemoveMode();
+                            break;
                     }
                 }
             });

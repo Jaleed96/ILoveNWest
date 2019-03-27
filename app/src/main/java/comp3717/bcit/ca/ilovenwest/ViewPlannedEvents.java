@@ -13,6 +13,7 @@ public class ViewPlannedEvents extends AppCompatActivity {
     ListView lvEvents;
     Plan plan;
     ArrayList<Event> eventList;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

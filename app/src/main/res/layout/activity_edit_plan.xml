@@ -15,8 +15,8 @@
             android:id="@+id/planName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/label_edit_plan_title"
             android:layout_margin="12sp"
+            android:hint="@string/label_edit_plan_title"
             android:textSize="20sp"
             android:textStyle="bold" />
 
@@ -39,35 +39,24 @@
             android:id="@+id/confirmBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="10sp"
             android:background="@color/green"
-            android:textColor="@color/platinum"
             android:foreground="?attr/selectableItemBackgroundBorderless"
             android:onClick="onConfirmClick"
-            android:layout_margin="10sp"
-            android:text="@string/button_ok" />
+            android:text="@string/button_ok"
+            android:textColor="@color/platinum" />
 
         <Button
             android:id="@+id/cancelBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="10sp"
             android:background="@color/red"
-            android:textColor="@color/platinum"
             android:foreground="?attr/selectableItemBackgroundBorderless"
             android:onClick="onCancelClick"
-            android:layout_margin="10sp"
-            android:text="@string/button_no" />
+            android:text="@string/button_no"
+            android:textColor="@color/platinum" />
 
-        <Button
-            android:id="@+id/clearBtn"
-            android:layout_width="140dp"
-            android:layout_height="wrap_content"
-            android:background="@color/mustard"
-            android:textColor="@color/platinum"
-            android:onClick="onClearSelectedClick"
-            android:layout_margin="10sp"
-            android:foreground="?attr/selectableItemBackgroundBorderless"
-            android:text="@string/button_clear"
-            android:visibility="gone" />
     </LinearLayout>
 
     <TextView
