@@ -55,10 +55,10 @@ public class login extends AppCompatActivity {
                             } else {
                                 processFailedLogin("Incorrect Password");
                             }
-                        } else {
-                            processFailedLogin("User does not currently exist. Please sign up.");
+                            return;
                         }
                     }
+                    processFailedLogin("User does not currently exist. Please sign up.");
                 }
 
                 @Override
