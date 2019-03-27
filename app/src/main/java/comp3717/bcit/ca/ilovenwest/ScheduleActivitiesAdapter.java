@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -35,6 +36,23 @@ public class ScheduleActivitiesAdapter extends ArrayAdapter<Event> {
         eventName.setText(event.getName().substring(0, Math.min(event.getName().length(), 30)));
         TextView eventAddress = convertView.findViewById(R.id.eventAddress);
         eventAddress.setText(event.getAddress());
+        ImageView image = convertView.findViewById(R.id.activityTypeImg1);
+        switch (event.getCategory()) {
+            case "Events":
+                image.setImageResource(R.drawable.firecracker);
+                break;
+            case "Heritage":
+                image.setImageResource(R.drawable.parchment);
+                break;
+            case "Public Art/Monuments":
+                image.setImageResource(R.drawable.palette);
+                break;
+            case "Venues":
+                image.setImageResource(R.drawable.violin);
+                break;
+            default:
+                break;
+        }
         convertView.setBackgroundResource(R.color.offWhite);
 
         // Return the completed view to render on screen
